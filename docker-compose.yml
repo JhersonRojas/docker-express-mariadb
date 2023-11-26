@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+
+  # Servicio para la base de datos MariaDB
+  mariadb:
+    image: mariadb
+    container_name: mariadb
+    restart: always
+    env_file:
+      - ./.env.example
+    environment:
+      MYSQL_USER: $MARIADB_USER
+      MYSQL_ROOT_PASSWORD: $MARIADB_ROOT_PASSWORD
+      MYSQL_DATABASE: $MARIADB_DATABASE
+    ports:
+      - $MARIADB_DOCKER_PORT:$MARIADB_PORT
+
+  # Servicio para la aplicación Express
+  app:
+    build: .
+    container_name: express-app
+    env_file:
+      - ./.env.example
+    environment:
+      DATABASE_HOST: $DATABASE_HOST
+      DATABASE_PORT: $DATABASE_PORT
+      DATABASE_USER: $DATABASE_USER
+      DATABASE_PASSWORD: $DATABASE_PASSWORD
+      DATABASE_NAME: $DATABASE_NAME
+    ports:
+      - $EXPRESS_PORT:$EXPRESS_PORT
+    depends_on:
+      - mariadb
+    links:
+      - mariadb

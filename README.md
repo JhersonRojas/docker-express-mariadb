@@ -15,4 +15,4 @@ conn los programas de la App
 | ------ | ------------ | ---- | --- | ------- | ----- |
 | id     | int(11)      | NO   | PRI | NULL    |       |
 | Nombre | varchar(200) | YES  |     | NULL    |       |
-| Email  | varchar(150) | YES  |     | NULL    |       |
+| Email  | varchar(80)  | YES  |     | NULL    |       |
