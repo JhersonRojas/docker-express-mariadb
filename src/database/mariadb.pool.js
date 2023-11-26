@@ -17,7 +17,6 @@ const poolConfigs = {
 
 export async function getConnection() {
     try {
-        console.log(poolConfigs)
         return await createPool(poolConfigs).getConnection();
     } catch (error) {
         logErrors({

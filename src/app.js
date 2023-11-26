@@ -1,26 +1,18 @@
 // Importación de paquetes
 import express from "express";
+import morgan from "morgan";
 
 // Importaciones internas
-import { getConnection } from "./database/mariadb.pool.js";
+import general_routes from "./routes/general.routes.js";
+import usuarios_routes from "./routes/usuarios.routes.js";
 
 // Instanciamiento de la App
 const app = express();
 
-app.use("/db", async (req, res) => {
-    try {
-        const test_query = await (await getConnection()).query("SELECT 2 + 2;");
+app.use(morgan("dev"));
+app.use(express.json());
 
-        console.log({
-            test_connection: "Connection is true",
-            test_query: await test_query,
-        });
-
-        return res.json({ validate: "Se ha establecido la conexión" });
-    } catch (error) {
-        console.log(error)
-        return res.json({ validate: "Error al establecer la conexión" });
-    }
-});
+app.use(general_routes);
+app.use(usuarios_routes);
 
 export default app;
