@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
 
 router.get("/db", async (req, res) => {
     try {
-        const test_query = await (await getConnection()).query("SELECT 2 + 2;");
+        const test_query = await (await getConnection()).query("SELECT NOW()");
 
         return res.json({
             msg: "Se ha establecido la conexión",

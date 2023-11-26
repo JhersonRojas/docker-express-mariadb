@@ -14,5 +14,5 @@ conn los programas de la App
 | Field  | Type         | Null | Key | Default | Extra |
 | ------ | ------------ | ---- | --- | ------- | ----- |
 | id     | int(11)      | NO   | PRI | NULL    |       |
-| Nombre | varchar(200) | YES  |     | NULL    |       |
-| Email  | varchar(80)  | YES  |     | NULL    |       |
+| nombre | varchar(200) | YES  |     | NULL    |       |
+| email  | varchar(80)  | YES  |     | NULL    |       |

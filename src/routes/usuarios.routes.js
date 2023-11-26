@@ -29,14 +29,13 @@ router.post("/usuarios", async (req, res) => {
         const usuario = await (await getConnection()).query(query);
 
         if (!usuario) {
-            throw new Error("No se ha realizado la inserción")
+            throw new Error("No se ha realizado la inserción");
         }
         return res.json({
             msg: "Se ha creado el usuario",
         });
 
     } catch (error) {
-        console.log(error)
         return res.json({ error: "Error al establecer la conexión" });
     }
 });

@@ -16,7 +16,7 @@ async function main() {
         // Mensaje en caso de no iniciarse el programa
         console.error({
             error: "No fue posible iniciar el servidor",
-            details: error,
+            details: error
         });
     }
 }

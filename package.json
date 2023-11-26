@@ -1,6 +1,6 @@
 {
   "name": "docker-express-mariadb",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Proyecto de ejemplo con Docker, Express y MariaDB",
   "main": "src/main.js",
   "scripts": {
